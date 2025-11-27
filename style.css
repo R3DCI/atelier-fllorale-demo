@@ -77,6 +77,8 @@ nav a:hover {
     right: 22px;
     z-index: 2000;
     color: #3E352E;
+    opacity: 0;
+    pointer-events: none;
 }
 
 /* --------------------------------------------------------- */
@@ -88,8 +90,9 @@ nav a:hover {
         display: block;
     }
 
-    .close-menu {
-        display: block;
+    nav.active + .close-menu {
+        opacity: 1;
+        pointer-events: auto;
     }
 
     nav {
@@ -105,6 +108,7 @@ nav a:hover {
         gap: 30px;
         transition: .35s ease-in-out;
         box-shadow: -2px 0 17px rgba(0,0,0,0.08);
+        z-index: 1500;
     }
 
     nav.active {
@@ -113,7 +117,6 @@ nav a:hover {
 
     nav a {
         font-size: 1.45rem;
-        color: #3E352E;
     }
 }
 
@@ -144,9 +147,10 @@ nav a:hover {
 @media(max-width: 760px) {
     .hero {
         height: 66vh;
+        padding-top: 30px;
     }
     .hero h1 {
-        font-size: 2.2rem;
+        font-size: 2.25rem;
     }
 }
 
@@ -220,6 +224,10 @@ nav a:hover {
     transition: .3s;
 }
 
+.product-card {
+    box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+}
+
 .card:hover, .product-card:hover {
     transform: translateY(-6px);
 }
@@ -268,6 +276,24 @@ nav a:hover {
     outline: none;
     border: 1px solid #BDA48F;
     box-shadow: 0 0 0 3px rgba(189,164,143,0.25);
+}
+
+/* --------------------------------------------------------- */
+/* GALLERY FIX — MOBILE ADAPTATION */
+/* --------------------------------------------------------- */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 18px;
+    padding: 20px;
+}
+
+.gallery-grid img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    object-fit: cover;
+    display: block;
 }
 
 /* --------------------------------------------------------- */
