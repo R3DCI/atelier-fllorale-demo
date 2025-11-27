@@ -180,6 +180,7 @@ nav a:hover {
 
 .btn:hover {
     background: #A38D77;
+    transform: translateY(-2px);
 }
 
 .btn-outline {
@@ -190,6 +191,7 @@ nav a:hover {
 .btn-outline:hover {
     background: #BDA48F;
     color: #fff;
+    transform: translateY(-2px);
 }
 
 /* --------------------------------------------------------- */
@@ -270,4 +272,84 @@ nav a:hover {
 .custom-form input,
 .custom-form select {
     padding: 14px;
-    bor
+    border-radius: 10px;
+    border: 1px solid #D6C5B4;
+    background: #FCFAF8;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 1.15rem;
+    transition: .3s;
+}
+
+.custom-form input:focus,
+.custom-form select:focus {
+    outline: none;
+    border: 1px solid #BDA48F;
+    box-shadow: 0 0 0 3px rgba(189,164,143,0.25);
+}
+
+/* --------------------------------------------------------- */
+/* GALLERY */
+/* --------------------------------------------------------- */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 18px;
+    padding: 20px;
+}
+
+.gallery-grid img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    object-fit: cover;
+    display: block;
+}
+
+/* --------------------------------------------------------- */
+/* FOOTER */
+/* --------------------------------------------------------- */
+.footer {
+    background: #E6DED6;
+    padding: 35px;
+    margin-top: 50px;
+    text-align: center;
+}
+
+.footer-links a {
+    margin: 0 10px;
+    color: #4A4038;
+    transition: .3s;
+}
+
+.footer-links a:hover {
+    color: #BDA48F;
+}
+
+/* --------------------------------------------------------- */
+/* ANIMATIONS */
+/* --------------------------------------------------------- */
+.fade, .fade-up, .fade-delay img {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1.2s ease, transform 1.2s ease;
+}
+
+.fade.animate,
+.fade-up.animate,
+.fade-delay.animate img {
+    opacity: 1;
+    transform: translateY(0px);
+}
+
+/* Cascade */
+.fade-delay img:nth-child(1) { transition-delay: 0.1s; }
+.fade-delay img:nth-child(2) { transition-delay: 0.18s; }
+.fade-delay img:nth-child(3) { transition-delay: 0.26s; }
+.fade-delay img:nth-child(4) { transition-delay: 0.34s; }
+.fade-delay img:nth-child(5) { transition-delay: 0.42s; }
+.fade-delay img:nth-child(6) { transition-delay: 0.50s; }
+
+/* Smooth scroll */
+html {
+    scroll-behavior: smooth;
+}
