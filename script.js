@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             const data = new FormData(form);
 
-            const budget = data.get("budget");
+            const budget = Number(data.get("budget")).toLocaleString("fr-FR");
             const couleurs = data.get("couleurs");
             const style = data.get("style");
             const occasion = data.get("occasion");
@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             const message =
                 `Bonjour, je souhaite une création florale sur-mesure.%0A%0A` +
-                `▪️ Budget : ${Number(budget).toLocaleString()} CFA%0A` +
+                `▪️ Budget : ${budget} CFA%0A` +
                 `▪️ Palette : ${couleurs}%0A` +
                 `▪️ Style : ${style}%0A` +
                 `▪️ Occasion : ${occasion}%0A` +
