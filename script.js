@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             const message =
                 `Bonjour, je souhaite une création florale sur-mesure.%0A%0A` +
-                `▪️ Budget : ${budget}%0A` +
+                `▪️ Budget : ${Number(budget).toLocaleString()} CFA%0A` +
                 `▪️ Palette : ${couleurs}%0A` +
                 `▪️ Style : ${style}%0A` +
                 `▪️ Occasion : ${occasion}%0A` +
