@@ -3,20 +3,23 @@ document.addEventListener("DOMContentLoaded", () => {
     const closeBtn = document.querySelector(".close-menu");
     const nav = document.querySelector("nav");
 
-    // Ouvrir
     toggle.addEventListener("click", () => {
         nav.classList.add("active");
+        closeBtn.style.opacity = "1";
+        closeBtn.style.pointerEvents = "auto";
     });
 
-    // Fermer
     closeBtn.addEventListener("click", () => {
         nav.classList.remove("active");
+        closeBtn.style.opacity = "0";
+        closeBtn.style.pointerEvents = "none";
     });
 
-    // Fermer en cliquant un lien
     nav.querySelectorAll("a").forEach(link => {
         link.addEventListener("click", () => {
             nav.classList.remove("active");
+            closeBtn.style.opacity = "0";
+            closeBtn.style.pointerEvents = "none";
         });
     });
 });
