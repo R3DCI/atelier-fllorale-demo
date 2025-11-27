@@ -7,6 +7,7 @@
 
 <link rel="stylesheet" href="style.css">
 <script src="nav.js" defer></script>
+<script src="animations.js" defer></script>
 <script src="script.js" defer></script>
 
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Cormorant+Garamond:wght@300;400;500&display=swap" rel="stylesheet">
@@ -15,7 +16,7 @@
 <body>
 
 <header class="top-nav">
-   <div class="logo"><a href="index.html" style="color: inherit; text-decoration: none;">Atelier Floral</a></div>
+    <div class="logo"><a href="index.html">Atelier Floral</a></div>
 
     <span class="menu-toggle">☰</span>
     <span class="close-menu">×</span>
@@ -30,20 +31,20 @@
 </header>
 
 
-<section class="section">
+<section class="section fade">
     <h1>Bouquet sur mesure</h1>
     <p class="section-subtitle">
         Parce que chaque intention est unique, nous créons pour vous une composition florale façonnée  
         selon vos envies, vos couleurs, vos émotions.
     </p>
 
-    <form class="custom-form" id="customForm">
+    <form class="custom-form fade-up" id="customForm">
 
         <label>Budget souhaité</label>
         <input type="number" name="budget" placeholder="Ex : 25 000 CFA" required>
 
         <label>Palette de couleurs</label>
-        <input type="text" name="couleurs" placeholder="Ex : pastel doux, blanc pur, rouge intense…" required>
+        <input type="text" name="couleurs" placeholder="Ex : pastel doux, blanc pur…" required>
 
         <label>Style recherché</label>
         <select name="style">
@@ -56,7 +57,7 @@
         </select>
 
         <label>Occasion</label>
-        <input type="text" name="occasion" placeholder="Ex : anniversaire, amour, remerciement…" required>
+        <input type="text" name="occasion" placeholder="Ex : anniversaire, amour…" required>
 
         <label>Date souhaitée</label>
         <input type="date" name="date" required>
@@ -65,7 +66,7 @@
         <input type="time" name="heure" required>
 
         <label>Adresse de livraison (facultatif)</label>
-        <input type="text" name="adresse" placeholder="Ex : Cocody, Riviera, Plateau…">
+        <input type="text" name="adresse" placeholder="Ex : Cocody, Riviera…">
 
         <button type="submit" class="btn">Envoyer la demande</button>
     </form>
