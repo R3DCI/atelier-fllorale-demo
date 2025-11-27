@@ -1,5 +1,5 @@
 /* --------------------------------------------------------- */
-/* GENERAL */
+/* RESET & GENERAL */
 /* --------------------------------------------------------- */
 * {
     margin: 0;
@@ -19,47 +19,87 @@ h1, h2, h3 {
     color: #3E352E;
 }
 
+a {
+    text-decoration: none;
+}
+
 /* --------------------------------------------------------- */
-/* HEADER */
+/* NAVBAR */
 /* --------------------------------------------------------- */
 .top-nav {
     position: sticky;
     top: 0;
-    background: rgba(255,255,255,0.9);
+    background: rgba(255,255,255,0.95);
     backdrop-filter: blur(10px);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 16px 22px;
+    padding: 14px 20px;
     border-bottom: 1px solid #E3D9CF;
-    z-index: 1000;
+    z-index: 999;
 }
 
 .logo {
-    font-size: 1.5rem;
+    font-size: 1.45rem;
     font-weight: 600;
+    white-space: nowrap;
 }
 
-.top-nav nav a {
-    margin-left: 20px;
-    font-size: 1.1rem;
+/* NAV LINKS */
+nav {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+}
+
+nav a {
+    font-size: 1.05rem;
     color: #3E352E;
-    transition: .3s ease;
+    transition: .3s;
 }
 
-.top-nav nav a:hover {
+nav a:hover {
     color: #BDA48F;
 }
 
-/* MOBILE */
-@media(max-width: 750px) {
-    .top-nav {
+/* --------------------------------------------------------- */
+/* MOBILE NAV */
+/* --------------------------------------------------------- */
+.menu-toggle {
+    display: none;
+    font-size: 1.9rem;
+    cursor: pointer;
+    user-select: none;
+}
+
+@media(max-width: 760px) {
+
+    nav {
+        position: fixed;
+        right: -100%;
+        top: 0;
+        height: 100vh;
+        width: 68%;
+        background: rgba(255,255,255,0.97);
+        backdrop-filter: blur(10px);
         flex-direction: column;
-        padding-bottom: 10px;
+        padding-top: 100px;
+        gap: 25px;
+        transition: .35s ease-in-out;
+        box-shadow: -2px 0 17px rgba(0,0,0,0.1);
     }
-    .top-nav nav a {
-        margin: 8px;
-        display: inline-block;
+
+    nav.active {
+        right: 0;
+    }
+
+    nav a {
+        font-size: 1.4rem;
+        color: #3E352E;
+    }
+
+    .menu-toggle {
+        display: block;
     }
 }
 
@@ -67,13 +107,11 @@ h1, h2, h3 {
 /* HERO */
 /* --------------------------------------------------------- */
 .hero {
-    background: url('https://images.unsplash.com/photo-1516632664305-eda5d4b287cc?auto=format&fit=crop&w=1200&q=80')
-        center/cover no-repeat;
     height: 75vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px;
+    padding: 15px;
 }
 
 .hero-content {
@@ -86,26 +124,33 @@ h1, h2, h3 {
 }
 
 .hero h1 {
-    font-size: 3rem;
+    font-size: 2.8rem;
 }
 
-.hero p {
-    font-size: 1.2rem;
-    margin-top: 12px;
+@media(max-width: 760px) {
+    .hero {
+        height: 66vh;
+    }
+    .hero h1 {
+        font-size: 2.2rem;
+    }
 }
 
 /* --------------------------------------------------------- */
 /* BUTTONS */
 /* --------------------------------------------------------- */
+.btn, .btn-outline {
+    border-radius: 40px;
+    padding: 13px 28px;
+    font-size: 1.05rem;
+    margin: 10px;
+    display: inline-block;
+    transition: .3s;
+}
+
 .btn {
     background-color: #BDA48F;
-    color: white;
-    padding: 14px 32px;
-    border-radius: 40px;
-    display: inline-block;
-    margin: 12px;
-    transition: .3s;
-    font-size: 1.1rem;
+    color: #fff;
 }
 
 .btn:hover {
@@ -115,16 +160,11 @@ h1, h2, h3 {
 .btn-outline {
     border: 2px solid #BDA48F;
     color: #BDA48F;
-    padding: 12px 30px;
-    border-radius: 40px;
-    margin: 12px;
-    transition: .3s;
-    font-size: 1.1rem;
 }
 
 .btn-outline:hover {
     background: #BDA48F;
-    color: white;
+    color: #fff;
 }
 
 /* --------------------------------------------------------- */
@@ -151,15 +191,18 @@ h1, h2, h3 {
 .cards-three, .boutique-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 30px;
+    gap: 28px;
     padding: 20px;
 }
 
+/* --------------------------------------------------------- */
+/* CARDS */
+/* --------------------------------------------------------- */
 .card, .product-card {
     background: white;
     border-radius: 15px;
-    overflow: hidden;
     border: 1px solid #E6DED6;
+    overflow: hidden;
     transition: .3s;
 }
 
@@ -173,35 +216,17 @@ h1, h2, h3 {
     object-fit: cover;
 }
 
-.product-card {
-    padding-bottom: 20px;
-}
-
-.product-card h3 {
-    padding: 15px;
-    font-size: 1.6rem;
-}
-
 .price {
     font-size: 1.25rem;
     font-weight: 600;
-    margin-bottom: 12px;
     color: #A67C63;
 }
 
-/* Subtle separation between products */
-.boutique-grid {
-    border-top: 1px solid #DCCFC3;
-    border-bottom: 1px solid #DCCFC3;
-    padding-top: 40px;
-    padding-bottom: 40px;
-}
-
 /* --------------------------------------------------------- */
-/* FORM (VERSION LUXE) */
+/* FORM */
 /* --------------------------------------------------------- */
 .custom-form {
-    max-width: 520px;
+    max-width: 540px;
     margin: auto;
     display: flex;
     flex-direction: column;
@@ -209,10 +234,8 @@ h1, h2, h3 {
 }
 
 .custom-form label {
-    font-size: 1.3rem;
+    font-size: 1.28rem;
     font-weight: 600;
-    margin-bottom: 5px;
-    color: #3E352E;
 }
 
 .custom-form input,
@@ -220,39 +243,17 @@ h1, h2, h3 {
     padding: 14px;
     border-radius: 10px;
     border: 1px solid #D6C5B4;
-    font-family: 'Cormorant Garamond', serif;
+    background: #FCFAF8;
+    font-family: "Cormorant Garamond", serif;
     font-size: 1.15rem;
     transition: .3s;
-    background: #FCFAF8;
 }
 
 .custom-form input:focus,
 .custom-form select:focus {
     outline: none;
     border: 1px solid #BDA48F;
-    box-shadow: 0 0 0 3px rgba(189,164,143,0.26);
-}
-
-/* --------------------------------------------------------- */
-/* GALLERY */
-/* --------------------------------------------------------- */
-.gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px,1fr));
-    gap: 20px;
-    padding: 10px;
-}
-
-.gallery-grid img {
-    width: 100%;
-    border-radius: 15px;
-    height: 280px;
-    object-fit: cover;
-    transition: .3s;
-}
-
-.gallery-grid img:hover {
-    transform: scale(1.05);
+    box-shadow: 0 0 0 3px rgba(189,164,143,0.25);
 }
 
 /* --------------------------------------------------------- */
@@ -260,9 +261,9 @@ h1, h2, h3 {
 /* --------------------------------------------------------- */
 .footer {
     background: #E6DED6;
-    text-align: center;
     padding: 35px;
     margin-top: 50px;
+    text-align: center;
 }
 
 .footer-links a {
